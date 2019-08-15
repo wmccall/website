@@ -1,17 +1,15 @@
-const INTERESTS_WORDS = [
-  { word: 'ceramics', tags: ['Art'] },
-  { word: 'photography', tags: ['Art'] },
-  { word: 'illustrator', tags: ['Art'] },
-  { word: 'photoshop', tags: ['Art'] },
-  { word: 'music', tags: ['Entertainment'] },
-  { word: 'movies', tags: ['Entertainment'] },
-  { word: 'video games', tags: ['Entertainment'] },
+const INTERESTS_CATEGORIES_AND_EXAMPLES = [
+  {
+    word: 'Art',
+    examples: ['Ceramics', 'Photography', 'Illustrator', 'Photoshop'],
+  },
+  { word: 'Entertainment', examples: ['Music', 'Movies', 'Video Games'] },
 ];
 
-const interests = INTERESTS_WORDS.map(wordObject => ({
+const interests = INTERESTS_CATEGORIES_AND_EXAMPLES.map(wordObject => ({
   type: 'interest',
   word: wordObject.word,
-  tags: wordObject.tags,
+  examples: wordObject.examples,
 }));
 
 export default interests;

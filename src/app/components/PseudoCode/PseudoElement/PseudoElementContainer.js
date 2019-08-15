@@ -5,11 +5,11 @@ import { ViewsActions } from '../../../views/ducks';
 const mapStateToProps = state => ({
   hoverCategory: state.viewState.hoverCategory,
   permanentCategory: state.viewState.permanentCategory,
-  currentTags: state.viewState.tags,
+  currentTag: state.viewState.tag,
 });
 
 const mapDispatchToProps = {
-  setCurrentTags: ViewsActions.setCurrentTags,
+  setCurrentTag: ViewsActions.setCurrentTag,
   setCurrentPage: ViewsActions.setCurrentPage,
 };
 

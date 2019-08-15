@@ -6,7 +6,7 @@ const backgroundCode = words => {
   const allCode = [];
   let wordCount = 0;
   for (let codeCount = 0; wordCount < words.length; codeCount += 1) {
-    if (codeCount % 13 === 0) {
+    if (codeCount % 31 === 0) {
       allCode.push(
         pseudoCode.pseudoImport(words[wordCount], {
           type: 'none',
@@ -15,7 +15,7 @@ const backgroundCode = words => {
       );
       wordCount += 1;
     }
-    if (codeCount % 11 === 0) {
+    if (codeCount % 37 === 0) {
       allCode.push(pseudoCode.pseudoMethodCall(words[wordCount]));
       wordCount += 1;
     }

@@ -1,19 +1,13 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import union from 'lodash.union';
 
-const containsTag = (word, currentTags, currentTagType) => {
-  if (word.type === currentTagType) {
-    const allTags = union(word.tags, currentTags);
-    return allTags.length < word.tags.length + currentTags.length;
-  }
-  return false;
-};
+const containsTag = (word, currentTag, currentTagType) =>
+  word.type === currentTagType && word.word === currentTag;
 
 const TagPage = props => {
   const {
-    setCurrentTags,
-    currentTags,
+    setCurrentTag,
+    currentTag,
     currentTagType,
     allWords,
     setCurrentPage,
@@ -21,17 +15,17 @@ const TagPage = props => {
 
   const backArrow = '<=';
 
-  const wordsWithCurrentTags = () => {
+  const wordsWithCurrentTag = () => {
     return allWords
-      .filter(word => containsTag(word, currentTags, currentTagType))
-      .map(word => word.word);
+      .filter(word => containsTag(word, currentTag, currentTagType))
+      .map(word => word.examples.join(', '));
   };
 
   const backButton = () => (
     <button
-      className="clear-tags"
+      className="clear-tag"
       type="button"
-      onClick={() => setCurrentTags(null, null) && setCurrentPage('home')}
+      onClick={() => setCurrentTag(null, null) && setCurrentPage('home')}
     >
       {backArrow}
     </button>
@@ -41,27 +35,25 @@ const TagPage = props => {
     <div className="tag-page">
       <div className="top-bar">
         {backButton()}
-        <div className={`tag-title ${currentTagType}`}>
-          {currentTags.join(', ')}
-        </div>
+        <div className={`tag-title ${currentTagType}`}>{currentTag}</div>
       </div>
       <div className="page-inner">
-        <div className="words">{wordsWithCurrentTags().join(', ')}</div>
+        <div className="words">{wordsWithCurrentTag()}</div>
       </div>
     </div>
   );
 };
 
 TagPage.propTypes = {
-  setCurrentTags: PropTypes.func.isRequired,
+  setCurrentTag: PropTypes.func.isRequired,
   setCurrentPage: PropTypes.func.isRequired,
-  currentTags: PropTypes.arrayOf(PropTypes.string),
+  currentTag: PropTypes.arrayOf(PropTypes.string),
   currentTagType: PropTypes.string,
   allWords: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 TagPage.defaultProps = {
-  currentTags: null,
+  currentTag: null,
   currentTagType: null,
 };
 

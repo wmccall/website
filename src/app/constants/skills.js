@@ -1,20 +1,17 @@
-const SKILLS_WORDS = [
-  { word: 'Java', tags: ['Languages'] },
-  { word: 'Python', tags: ['Languages'] },
-  { word: 'React', tags: ['Web Development'] },
-  { word: 'CSS', tags: ['Web Development'] },
-  { word: 'AWS', tags: ['Infrastructure'] },
-  { word: 'Git', tags: ['Version-Control'] },
-  { word: 'C#', tags: ['Languages'] },
-  { word: 'Terraform', tags: ['Infrastructure'] },
-  { word: 'Serverless', tags: ['Infrastructure'] },
-  { word: 'Docker', tags: ['Infrastructure'] },
+const SKILL_CATEGORIES_AND_EXAMPLES = [
+  { word: 'Languages', examples: ['Java', 'Python', 'C#'] },
+  { word: 'Web Development', examples: ['React', 'CSS', 'C#'] },
+  {
+    word: 'Infrastructure',
+    examples: ['AWS', 'Terraform', 'Serverless', 'Docker'],
+  },
+  { word: 'Version-Control', examples: ['Git'] },
 ];
 
-const skills = SKILLS_WORDS.map(wordObject => ({
+const skills = SKILL_CATEGORIES_AND_EXAMPLES.map(skillObject => ({
   type: 'skill',
-  word: wordObject.word,
-  tags: wordObject.tags,
+  word: skillObject.word,
+  examples: skillObject.examples,
 }));
 
 export default skills;
