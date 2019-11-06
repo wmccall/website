@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "master_post-commit": "echo 'committed to master'",
+    "master_post-commit": "sh merge-master.sh",
     "test": "react-scripts test --verboase -env=jsdom",
     "test:cover": "npm test --coverage --watchAll",
     "eject": "react-scripts eject",
