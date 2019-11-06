@@ -15,3 +15,6 @@ git commit -m "Deploy site"
 git remote add origin git@github.com:wmccall/test-site.git
 
 git push -u origin master
+
+cd ../../
+rm -rf git-work
