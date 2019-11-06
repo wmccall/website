@@ -24,7 +24,7 @@
   },
   "husky": {
     "hooks": {
-      "post-commit": "branch=`git branch | grep \\* | cut -d ' ' -f2`;branchesToCheck=(\"master\"); [[ \" ${branchesToCheck[@]} \" =~ \" ${branch} \" ]] &&  npm run master_post-commit || exit 0"
+      "post-commit": "branch=`git branch | grep \\* | cut -d ' ' -f2`;[[ \"master\" =~ \" ${branch} \" ]] &&  npm run master_post-commit || exit 0"
     }
   },
   "browserslist": [
