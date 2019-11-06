@@ -1,7 +1,7 @@
 {
   "name": "website",
   "version": "0.1.0",
-  "homepage": "https://wmccall.github.io/website",
+  "homepage": "https://wmccall.github.io/test-site",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
