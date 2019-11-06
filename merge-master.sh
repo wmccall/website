@@ -6,8 +6,6 @@ git clone git@github.com:wmccall/test-site
 
 cd test-site
 
-rm -rf -v !(".git"|".gitignore"|"CNAME") 
-
 cp -r ../build/* ./
 
 git add -A
