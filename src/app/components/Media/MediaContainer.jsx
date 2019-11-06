@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import PseudoGlobal from './PseudoGlobal';
+import Media from './Media';
 
 const mapStateToProps = state => ({
-  hoverCategory: state.viewState.hoverCategory,
-  permanentCategory: state.viewState.permanentCategory,
+  type: state.viewState.pageSequence.slice(-1)[0].tagType,
+  word: state.viewState.pageSequence.slice(-1)[0].word,
 });
 
 const mapDispatchToProps = {};
@@ -11,4 +11,4 @@ const mapDispatchToProps = {};
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(PseudoGlobal);
+)(Media);

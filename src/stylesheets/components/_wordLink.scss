@@ -1,0 +1,22 @@
+.WordLink {
+  outline: 0;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 20px;
+  .word-link-word {
+    margin: 0;
+    &.no-link {
+      color: $light-gray;
+    }
+
+    &.link {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .punctuation {
+    color: $light-gray;
+  }
+}

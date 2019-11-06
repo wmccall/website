@@ -1,0 +1,179 @@
+.tag-page {
+  // scroll bar
+  *::-webkit-scrollbar-track {
+    background-color: $darkest-gray;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    background-color: $darker-gray;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    background-color: $light-gray;
+  }
+
+  overflow: hidden;
+  height: 100vh;
+  background-color: $darker-gray;
+  font-family: 'Droid Sans Mono', monospace;
+  .top-bar {
+    z-index: 10;
+    background-color: $darker-gray;
+    height: 120px;
+    .back-button {
+      transition: color 0.15s ease-in-out;
+      color: $light-gray;
+      background: $back-button-gray;
+      border: 0;
+      outline: 0;
+      margin: 10px 5px 0px 10px;
+      padding: 5px 10px 5px 10px;
+      font-size: 30px;
+      font-style: italic;
+      width: 70px;
+      height: fit-content;
+      &:hover {
+        cursor: pointer;
+        &.skill {
+          color: $string-green;
+        }
+        &.interest {
+          color: $pastel-blue;
+        }
+        &.project {
+          color: $variable-red;
+        }
+        &.home {
+          color: $white;
+        }
+      }
+    }
+    .home-button {
+      margin-top: 5px;
+      &.hidden {
+        visibility: hidden;
+      }
+    }
+    .level-one {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      width: 100%;
+      .tag-title {
+        font-size: 20px;
+        line-height: 20px;
+        padding-top: 8px;
+        margin-top: auto;
+        margin-bottom: auto;
+        padding-left: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        .words {
+          margin: auto;
+          text-align: center;
+          margin-left: 1px;
+          .word {
+            background-color: transparent;
+            border: 0;
+            outline: 0;
+            font-family: 'Droid Sans Mono', monospace;
+            color: $light-gray;
+            font-size: 20px;
+            line-height: 20px;
+            text-decoration: underline;
+            padding: 0;
+            &:hover,
+            &.selected {
+              cursor: pointer;
+              &.skill {
+                color: $string-green;
+              }
+              &.interest {
+                color: $pastel-blue;
+              }
+              &.project {
+                color: $variable-red;
+              }
+            }
+            &.selected {
+              cursor: unset;
+              text-decoration: unset;
+            }
+          }
+          .later-comma {
+            padding-right: 10px;
+            display: inline;
+            color: $light-gray;
+          }
+        }
+        .bracket {
+          color: $light-gray;
+        }
+      }
+    }
+    .level-two {
+      display: flex;
+      align-content: flex-start;
+      width: 100%;
+      font-size: 24px;
+      div {
+        margin-right: 15px;
+        padding-left: 5px;
+        &.tag {
+          font-size: 25px;
+          font-style: italic;
+          margin-top: 12px;
+          display: flex;
+          flex-wrap: wrap;
+          .inline {
+            display: inline-block;
+          }
+        }
+      }
+      .neutral {
+        color: $light-gray;
+      }
+      .constant {
+        color: $constant-yellow;
+      }
+    }
+  }
+  .page-container {
+    background-color: $darkest-gray;
+    position: absolute;
+    padding-left: 90px;
+    padding-top: 30px;
+    top: 120px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow-y: scroll;
+    .page-inner {
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+      .topic-focus,
+      .Media {
+        padding-right: 50px;
+        width: 800px;
+        font-size: 25px;
+      }
+    }
+    .padding-vertical {
+      height: 30px;
+    }
+  }
+  .skill {
+    color: $string-green;
+  }
+  .interest {
+    color: $pastel-blue;
+  }
+  .project {
+    color: $variable-red;
+  }
+}

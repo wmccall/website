@@ -1,4 +1,9 @@
 .base-page-container {
   width: 100%;
   text-align: center;
+  background-color: $darker-gray;
+
+  a{
+    color: $constant-yellow;
+  }
 }

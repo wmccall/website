@@ -1,14 +1,11 @@
 import { connect } from 'react-redux';
 import App from './App';
-import { ViewsActions } from './views/ducks';
 
 const mapStateToProps = state => ({
-  page: state.viewState.page,
+  page: state.viewState.pageSequence.slice(-1)[0].page,
 });
 
-const mapDispatchToProps = {
-  changePage: ViewsActions.changePage,
-};
+const mapDispatchToProps = {};
 
 export default connect(
   mapStateToProps,

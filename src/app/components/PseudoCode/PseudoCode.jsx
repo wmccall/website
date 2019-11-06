@@ -1,61 +1,60 @@
 import React from 'react';
 
 import PseudoCodeUtils from '../../utils/PseudoCodeUtils';
-import PseudoReserved from './PseudoReserved';
-import PseudoGlobal from './PseudoGlobal';
-import PseudoString from './PseudoString';
-import PseudoMethod from './PseudoMethod';
+import PseudoElement from './PseudoElement';
 
 const mockWord = { word: 'theGrid' };
+const mockConstant = { word: 'DIGITAL_FRONTIER' };
+const mockString = { word: "'break it to me'" };
 
 const pseudoCode = code => <div className="pseudo-code">{code}</div>;
 
 const pseudoImport = (moduleName = mockWord, packageName = mockWord) =>
   pseudoCode([
-    <PseudoReserved word={{ word: 'import' }} />,
-    <PseudoGlobal word={moduleName} />,
-    <PseudoReserved word={{ word: 'from' }} />,
-    <PseudoString word={packageName} last />,
+    <PseudoElement defaultType="reserved" word={{ word: 'import' }} />,
+    <PseudoElement defaultType="global" word={moduleName} />,
+    <PseudoElement defaultType="reserved" word={{ word: 'from' }} />,
+    <PseudoElement defaultType="string" word={packageName} last />,
   ]);
 
 const pseudoMethodCall = (methodName = mockWord, argumentName = mockWord) =>
   pseudoCode([
-    <PseudoReserved word={{ word: 'bigVariableName' }} />,
+    <PseudoElement defaultType="reserved" word={{ word: 'bigVariableName' }} />,
     PseudoCodeUtils.equalsSign,
-    <PseudoMethod word={methodName} />,
+    <PseudoElement defaultType="method" word={methodName} />,
     PseudoCodeUtils.leftParen,
-    <PseudoString word={argumentName} />,
+    <PseudoElement defaultType="string" word={argumentName} />,
     PseudoCodeUtils.rightParen,
     PseudoCodeUtils.semiColon,
   ]);
 
-const pseudoStringDefinition = (
-  pseudoModule = mockWord,
-  pseudoPackage = mockWord,
+const pseudoStringConstDefinition = (
+  pseudoConst = mockConstant,
+  pseudoString = mockString,
 ) =>
   pseudoCode([
-    <PseudoReserved word={{ word: 'import' }} />,
-    <PseudoGlobal word={pseudoModule} />,
-    <PseudoReserved word={{ word: 'from' }} />,
-    <PseudoString word={pseudoPackage} last />,
+    <PseudoElement defaultType="reserved" word={{ word: 'const' }} />,
+    <PseudoElement defaultType="constant" word={pseudoConst} />,
+    PseudoCodeUtils.equalsSign,
+    <PseudoElement defaultType="string" word={pseudoString} last />,
   ]);
 
 const pseudoReturnMethod = (methodName = mockWord) =>
   pseudoCode([
-    <PseudoGlobal word={{ word: 'return' }} />,
-    <PseudoMethod word={methodName} last />,
+    <PseudoElement defaultType="global" word={{ word: 'return' }} />,
+    <PseudoElement defaultType="method" word={methodName} last />,
   ]);
 
 const pseudoReturnString = (stringName = mockWord) =>
   pseudoCode([
-    <PseudoGlobal word={{ word: 'return' }} />,
-    <PseudoString word={stringName} last />,
+    <PseudoElement defaultType="global" word={{ word: 'return' }} />,
+    <PseudoElement defaultType="string" word={stringName} last />,
   ]);
 
 export default {
   pseudoImport,
   pseudoMethodCall,
-  pseudoStringDefinition,
+  pseudoStringConstDefinition,
   pseudoReturnMethod,
   pseudoReturnString,
 };

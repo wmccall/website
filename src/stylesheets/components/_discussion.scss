@@ -1,0 +1,94 @@
+.Discussion {
+  width: fit-content;
+  .tab {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
+  .main-topic {
+    padding-top: 10px;
+    width: 800px;
+    .header {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 24px;
+      margin-top: 5px;
+      padding-right: 10px;
+      div {
+        display: inline-block;
+        padding-right: 10px;
+      }
+    }
+
+    .description {
+      display: block;
+      color: $light-gray;
+      padding: 10px 10px 10px 10px;
+      font-size: 16px;
+      .heart {
+        font-size: 22px;
+        line-height: 16px;
+      }
+      div {
+        display: inline-block;
+      }
+      .new-line {
+        display: block;
+      }
+      .tab:not(:first-child) {
+        padding-top: 10px;
+      }
+    }
+  }
+  .sub-topic {
+    padding-top: 10px;
+    max-width: 800px;
+    .sub-header {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 24px;
+      margin-top: 5px;
+      padding-right: 10px;
+      div {
+        display: inline-block;
+        padding-right: 10px;
+      }
+    }
+
+    .description {
+      display: block;
+      color: $light-gray;
+      padding: 10px;
+      font-size: 16px;
+      div {
+        display: inline-block;
+      }
+      .new-line {
+        display: block;
+      }
+      .tab:not(:first-child) {
+        padding-top: 10px;
+      }
+    }
+  }
+
+  .WordLink {
+    font-size: 16px;
+  }
+
+  .neutral {
+    color: $light-gray !important;
+  }
+  .italic {
+    font-style: italic !important;
+  }
+  .small {
+    font-size: 18px !important;
+  }
+  .left-pad {
+    padding-left: 10px !important;
+  }
+  .no-pad {
+    padding: 0 !important;
+  }
+}

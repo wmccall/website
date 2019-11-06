@@ -1,74 +1,299 @@
-$profile-image-height: 375px;
+$profile-image-height: 35vh;
+$blur-level: calc(9px + 0.3vw);
+$border-length: 0.3vh;
+$drop-shadow: 0.9vh;
+
+$hover-drop-shadow: 0.7vh;
+$hover-margin-bottom: 0.8vh;
+$hover-margin-top: 0.2vh;
+
+$click-drop-shadow: 0.2vh;
+$click-margin-bottom: 0.3vh;
+$click-margin-top: 0.7vh;
 
 .home {
-  .code-container {
+  // scroll bar
+  *::-webkit-scrollbar-track {
+    background-color: $darker-gray;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    background-color: $dark-gray;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    background-color: $light-gray;
+  }
+
+  *::-webkit-scrollbar-corner {
+    background: $darker-gray;
+  }
+
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+
+  transition: opacity 0.15s ease-in-out 0.05s;
+
+  &.opaque {
+    opacity: 0;
+  }
+
+  .action-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vw 10px 3.5vw 10px;
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
-    overflow: hidden;
+    justify-content: space-around;
+    background: linear-gradient(
+      180deg,
+      rgba(43, 48, 55, 0) 0%,
+      rgba(0, 0, 0, 0.3617822128851541) 70%
+    );
+    pointer-events: none;
+
+    button {
+      margin-bottom: 1vh;
+      pointer-events: all !important;
+      color: $white;
+      outline: 0;
+      border-radius: 100px;
+      border: solid $border-length $white;
+      font-size: 3vh;
+      font-family: 'Droid Sans Mono', monospace;
+      min-width: 16vw;
+      padding: 1.4vh 1.7vh 1.4vh 1.7vh;
+      background-color: $darker-gray;
+      transition: border 0.15s ease-in-out, color 0.15s ease-in-out,
+        margin-top 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+        margin-bottom 0.15s ease-in-out, margin-top 0.15s ease-in-out;
+      box-shadow: 0px $drop-shadow 0px $dark-gray;
+
+      span {
+        transition: color 0.15s ease-in-out;
+      }
+
+      &:hover span,
+      &.active span {
+        &.button-will {
+          color: $constant-yellow;
+        }
+
+        &.button-dot {
+          color: $light-gray;
+        }
+      }
+
+      &.skills-button:hover span,
+      &.skills-button.active span {
+        &.button-type {
+          color: $string-green;
+        }
+      }
+
+      &.skills-button:hover {
+        border: solid $border-length $string-green;
+        box-shadow: 0px $hover-drop-shadow 0px $dark-string-green;
+        margin-bottom: $hover-margin-bottom;
+        margin-top: $hover-margin-top;
+      }
+
+      &.skills-button.active {
+        border: solid $border-length $string-green;
+        box-shadow: 0px $click-drop-shadow 0px $dark-string-green;
+        margin-bottom: $click-margin-bottom;
+        margin-top: $click-margin-top;
+      }
+
+      &.interests-button:hover span,
+      &.interests-button.active span {
+        &.button-type {
+          color: $pastel-blue;
+        }
+      }
+
+      &.interests-button:hover {
+        border: solid $border-length $pastel-blue;
+        box-shadow: 0px $hover-drop-shadow 0px $dark-pastel-blue;
+        margin-bottom: $hover-margin-bottom;
+        margin-top: $hover-margin-top;
+      }
+
+      &.interests-button.active {
+        border: solid $border-length $pastel-blue;
+        box-shadow: 0px $click-drop-shadow 0px $dark-pastel-blue;
+        margin-bottom: $click-margin-bottom;
+        margin-top: $click-margin-top;
+      }
+
+      &.projects-button:hover span,
+      &.projects-button.active span {
+        &.button-type {
+          color: $variable-red;
+        }
+      }
+
+      &.projects-button:hover {
+        border: solid $border-length $variable-red;
+        box-shadow: 0px $hover-drop-shadow 0px $dark-variable-red;
+        margin-bottom: $hover-margin-bottom;
+        margin-top: $hover-margin-top;
+      }
+
+      &.projects-button.active {
+        border: solid $border-length $variable-red;
+        box-shadow: 0px $click-drop-shadow 0px $dark-variable-red;
+        margin-bottom: $click-margin-bottom;
+        margin-top: $click-margin-top;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .code {
     height: 100vh;
-    background-color: $darker-gray;
-    .pseudo-code {
-      user-select: none;
+    overflow: auto;
+    .code-container {
+      padding: 3vh 2.5vw 0 2.5vw;
       display: flex;
-      font-size: 23px;
-      height: 23px;
-      width: fit-content;
-      font-family: 'Courier New', Courier, monospace;
-      padding: 5px 0 5px 0;
-      div {
-        transition: text-shadow 0.15s ease-in-out;
-        display: inline-block;
-        padding: 0 5px 0 5px;
-        &.pseudo-reserved {
-          color: transparent;
-          text-shadow: 0 0 15px $variable-red;
-          &.visible {
-            text-shadow: 0 0 0px $variable-red;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      background-color: $darker-gray;
+
+      .pseudo-code {
+        display: flex;
+        flex-wrap: wrap;
+        align-self: flex-start;
+        user-select: none;
+        display: flex;
+        padding: 0 3px 0 3px;
+
+        button,
+        div {
+          font-size: 2.5vh;
+          line-height: 2.7vh;
+          width: fit-content;
+          font-family: 'Droid Sans Mono', monospace;
+          background: transparent;
+          outline: 0;
+          border: 0;
+          margin-top: 2px;
+          padding: 0 5px 0 5px;
+          transition: text-shadow 0.15s ease-in-out;
+          display: inline-block;
+
+          &.pseudo-reserved {
+            color: transparent;
+            text-shadow: 0 0 $blur-level $variable-red;
+
+            &.visible {
+              text-shadow: 0 0 0px $variable-red;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            &.underline {
+              text-decoration: underline;
+            }
           }
-          &.underline {
-            text-decoration: underline;
+
+          &.pseudo-constant {
+            color: transparent;
+            text-shadow: 0 0 $blur-level $constant-yellow;
+
+            &.visible {
+              text-shadow: 0 0 0px $constant-yellow;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            &.underline {
+              text-decoration: underline;
+            }
+          }
+
+          &.pseudo-string {
+            color: transparent;
+            text-shadow: 0 0 $blur-level $string-green;
+
+            &.visible {
+              text-shadow: 0 0 0px $string-green;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            &.underline {
+              text-decoration: underline;
+            }
+          }
+
+          &.pseudo-global {
+            color: transparent;
+            text-shadow: 0 0 $blur-level $global-purple;
+
+            &.visible {
+              text-shadow: 0 0 0px $global-purple;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            &.underline {
+              text-decoration: underline;
+            }
+          }
+
+          &.pseudo-method {
+            color: transparent;
+            text-shadow: 0 0 $blur-level $pastel-blue;
+
+            &.visible {
+              text-shadow: 0 0 0px $pastel-blue;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            &.underline {
+              text-decoration: underline;
+            }
+          }
+
+          &.none-type-code {
+            padding: 0;
+            color: transparent;
+            text-shadow: 0 0 $blur-level $gray;
           }
         }
-        &.pseudo-string {
-          color: transparent;
-          text-shadow: 0 0 15px $string-green;
-          &.visible {
-            text-shadow: 0 0 0px $string-green;
-          }
-          &.underline {
-            text-decoration: underline;
-          }
-        }
-        &.pseudo-global {
-          color: transparent;
-          text-shadow: 0 0 15px $global-purple;
-          &.visible {
-            text-shadow: 0 0 0px $global-purple;
-          }
-          &.underline {
-            text-decoration: underline;
-          }
-        }
-        &.pseudo-method {
-          color: transparent;
-          text-shadow: 0 0 15px $pastel-blue;
-          &.visible {
-            text-shadow: 0 0 0px $pastel-blue;
-          }
-          &.underline {
-            text-decoration: underline;
-          }
-        }
-        &.none-type-code {
-          padding: 0;
-          color: transparent;
-          text-shadow: 0 0 15px $gray;
+        &:last-child {
+          padding: 0 5px 18vh 5px;
         }
       }
     }
   }
+
   .profile-container {
+    pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -78,54 +303,20 @@ $profile-image-height: 375px;
     margin-right: auto;
     height: $profile-image-height;
     transition: all 0.15s ease-in-out;
+    z-index: 100;
+
     &.opaque {
       opacity: 0;
+      z-index: -1;
     }
+
     .profile-picture {
+      pointer-events: all !important;
       user-select: none;
       border-radius: $profile-image-height;
       border: solid 3px $white;
       max-width: 100%;
       height: 100%;
-    }
-  }
-  .action-buttons {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2vh;
-    display: flex;
-    justify-content: space-around;
-
-    button {
-      color: $white;
-      outline: 0;
-      border-radius: 100px;
-      border: solid 3px $white;
-      font-size: 25px;
-      font-family: 'Courier New', Courier, monospace;
-      padding: 17px 21px 17px 21px;
-      background-color: $darker-gray;
-      transition: border 0.15s ease-in-out, color 0.15s ease-in-out,
-        margin-top 0.15s ease-in-out;
-      &.skills-button:hover,
-      &.skills-button.active {
-        color: $string-green;
-        border: solid 3px $string-green;
-      }
-      &.interests-button:hover,
-      &.interests-button.active {
-        color: $pastel-blue;
-        border: solid 3px $pastel-blue;
-      }
-      &.achievements-button:hover,
-      &.achievements-button.active {
-        color: $variable-red;
-        border: solid 3px $variable-red;
-      }
     }
   }
 }

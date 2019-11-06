@@ -2,10 +2,12 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 
 import Home from './views/Home';
+import TagPage from './views/TagPage';
 import BasePage from './views/BasePage';
 
 const PAGES = {
   home: Home,
+  tag: TagPage,
 };
 
 const renderPage = pageName => {

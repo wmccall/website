@@ -1,0 +1,40 @@
+.Media {
+  width: 670px;
+  font-style: italic;
+
+  .title {
+    font-style: italic;
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+
+  .videos {
+    padding-top: 10px;
+    .video {
+      padding: 10px;
+      iframe {
+        width: 640px;
+        height: 360px;
+      }
+    }
+  }
+  .photos {
+    padding-top: 10px;
+    .album {
+      padding: 10px;
+      .album-photos {
+        overflow: auto;
+        padding: 10px;
+      }
+    }
+  }
+  .playlists {
+    padding-top: 10px;
+    .playlist-group {
+      padding: 10px;
+      iframe {
+        padding-right: 10px;
+      }
+    }
+  }
+}
