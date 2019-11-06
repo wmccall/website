@@ -6,7 +6,7 @@ git clone git@github.com:wmccall/test-site
 
 cd test-site
 
-cp -r ../build/* ./
+cp -r ../../build/* ./
 
 git add -A
 
