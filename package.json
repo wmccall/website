@@ -8,6 +8,7 @@
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "master_post-commit": "echo 'committed to master'",
     "test": "react-scripts test --verboase -env=jsdom",
     "test:cover": "npm test --coverage --watchAll",
     "eject": "react-scripts eject",
@@ -23,8 +24,7 @@
   },
   "husky": {
     "hooks": {
-      "post-commit": "if git-branch-is master; then npm run master_post-commit; fi",
-      "master_post-commit": "echo 'committed to master'"
+      "post-commit": "branch=`git branch | grep \\* | cut -d ' ' -f2`;branchesToCheck=(\"master\"); [[ \" ${branchesToCheck[@]} \" =~ \" ${branch} \" ]] &&  npm run master_post-commit || exit 0"
     }
   },
   "browserslist": [
