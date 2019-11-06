@@ -23,7 +23,7 @@
   },
   "husky": {
     "hooks": {
-      "post-commit": "if branch is master; then npm run master_post-commit; fi",
+      "post-commit": "if git-branch-is master; then npm run master_post-commit; fi",
       "master_post-commit": "echo 'committed to master'"
     }
   },
