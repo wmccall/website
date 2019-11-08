@@ -2,6 +2,71 @@ import photoAlbumsCreator from '../utils/PhotoAlbumsCreator';
 
 const ALBUMS = [
   {
+    title: 'Tux -> Win9009',
+    photoElements: [
+      {
+        src: 'https://imgur.com/CmLVYjV.jpg',
+        caption: 'New Retro Keycaps',
+        tw: 3480,
+        th: 4640,
+      },
+      {
+        src: 'https://imgur.com/ncENvv5.jpg',
+        caption: 'Replaced ESC and Delete with some DIY keycaps',
+        tw: 3990,
+        th: 1772,
+        tsize: 'm',
+      },
+    ],
+  },
+  {
+    title: 'DIY Keycaps',
+    photoElements: [
+      {
+        src: 'https://imgur.com/ubIVI6t.jpg',
+        caption: 'Created a Silicone Mold',
+        tw: 3480,
+        th: 4640,
+      },
+      {
+        src: 'https://imgur.com/3gp3zoY.jpg',
+        caption: 'First Cast',
+        tw: 3480,
+        th: 4640,
+      },
+      {
+        src: 'https://imgur.com/mdGQFvb.jpg',
+        caption: 'Oops, no Stem!',
+        tw: 3480,
+        th: 4640,
+      },
+      {
+        src: 'https://imgur.com/U6oyAgv.jpg',
+        caption: 'Second attempt looking pretty good',
+        tw: 3480,
+        th: 4640,
+      },
+      {
+        src: 'https://imgur.com/ABmRcFu.jpg',
+        caption: 'Profile View of V2',
+        tw: 3480,
+        th: 4640,
+      },
+      {
+        src: 'https://imgur.com/02PcjKF.jpg',
+        caption: 'Red V3',
+        tw: 3480,
+        th: 4640,
+      },
+      {
+        src: 'https://imgur.com/kqCZgbn.jpg',
+        caption: 'V2 and V3',
+        tw: 3480,
+        th: 4640,
+      },
+    ],
+  },
+  {
     title: 'Tux and Frost',
     photoElements: [
       {
