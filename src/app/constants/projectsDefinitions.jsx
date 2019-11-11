@@ -355,7 +355,7 @@ export const projectPageData = {
       },
     ],
   },
-  'WillMcCall.com': {
+  'WillMcCall.dev': {
     discussion: [
       {
         title: 'Personal Website',
