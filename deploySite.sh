@@ -9,9 +9,11 @@ git clone git@github.com:wmccall/wmccall.github.io
 cd wmccall.github.io
 rm -rf !(".git"|".gitignore"|"CNAME")
 cp -r ../../build/* ./
+ls
 
-git commit -a -m "Deploy site"
-git remote add origin git@github.com:wmccall/wmccall.github.io.git
+git status
+git add -A
+git commit -m "Deploy site"
 git push -u origin master
 
 cd ../../

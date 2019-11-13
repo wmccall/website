@@ -42,7 +42,7 @@ const ALBUMS = [
       },
       {
         src: 'https://imgur.com/PCNAF3u.png',
-        caption: 'SWAT Profile Attempt',
+        caption: 'SWAT Profile',
         tw: 1800,
         th: 1817,
       },
