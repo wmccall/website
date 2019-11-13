@@ -321,7 +321,7 @@ export const projectPageData = {
         {
           title: 'Demo',
           src:
-            'https://www.youtube.com/embed/giS5Lr0HmzQ?list=PLplNU3zJ099AzyxnwtFRmXde9A45-0UvR&rel=0',
+            'https://www.youtube.com/embed/889HrRQpi04?list=PLplNU3zJ099AzyxnwtFRmXde9A45-0UvR&rel=0',
         },
       ],
     },
