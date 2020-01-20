@@ -3,6 +3,7 @@ const PROJECTS_WORDS = {
   BulkPing: 'Desktop Application',
   'Clear Downloads': 'Desktop Application',
   'Program Snapshot': 'Desktop Application',
+  'Thread Hunt': 'Desktop Application',
   "Q'd Up": 'Mobile',
   'Quick Search': 'Plugin',
   'WillMcCall.dev': 'Web',

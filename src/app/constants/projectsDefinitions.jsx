@@ -263,6 +263,42 @@ export const projectPageData = {
       ],
     },
   },
+  'Thread Hunt': {
+    discussion: [
+      {
+        title: 'A more malicious Duck Hunt',
+        description: (
+          <>
+            <div className="tab" />
+            Thread Hunt was a meme I wanted to see come to life. I thought,
+            &quot;how funny would it be to play a game that slowly cripples your
+            machine&quot; and knew I couldn&apos;t let the idea slip by. It
+            features hand drawn textures, personal high scores, and serious
+            ability to kill your running processes.
+            <div className="new-line" />
+            <div className="tab" />
+            This program is written in <WordLink {...skillObjects.Python} /> for
+            the GUI and logic, and some command line to capture the running
+            programs on the OS. To use the program, the user simply runs the
+            run.sh file which installs all dependencies and starts the game.
+            From there the user may begin the dangerous game of ducks and
+            threads.
+          </>
+        ),
+        sourceLink: 'https://github.com/wmccall/ThreadHunt',
+      },
+    ],
+    media: {
+      albums: null,
+      videos: [
+        {
+          title: 'Demo',
+          src:
+            'https://www.youtube.com/embed/tL69X10wPyo?list=PLplNU3zJ099DH8iwxsCO02mnLHGeDgpSX&rel=0',
+        },
+      ],
+    },
+  },
   "Q'd Up": {
     discussion: [
       {
